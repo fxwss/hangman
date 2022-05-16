@@ -14,7 +14,7 @@ export const useRandomWord = (): UseRandomWordReturn => {
 
   // useCallback is used to prevent the function from re-rendering.
   // Can also be called to get a new word.
-  const getRandomWord = useCallback(async () => {
+  const updateWord = useCallback(async () => {
     setWord('');
     const response = await axios.get<WordApiResponse>('https://api.dicionario-aberto.net/random');
     setWord(response.data.word);
@@ -22,8 +22,8 @@ export const useRandomWord = (): UseRandomWordReturn => {
 
   // Get a random word on component mount
   useEffect(() => {
-    getRandomWord();
+    updateWord();
   }, []);
 
-  return [word, getRandomWord];
+  return [word, updateWord];
 };

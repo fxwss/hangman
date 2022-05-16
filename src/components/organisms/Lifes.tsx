@@ -24,7 +24,7 @@ type LifesProps = {
 
 const Lifes = ({ total, current }: LifesProps) => {
   return (
-    <div className="flex flex-row-reverse gap-4">
+    <div className="flex flex-row-reverse gap-4 flex-wrap justify-center">
       {Array(total)
         .fill(0)
         .map((_, index) =>

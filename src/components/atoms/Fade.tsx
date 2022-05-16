@@ -3,10 +3,10 @@ import React, { memo, ReactNode, useState } from 'react';
 
 type FadeProps = {
   children?: ReactNode;
-  className?: React.HTMLAttributes<HTMLDivElement>['className'];
+  className?: string;
 };
 
-const Fade = ({ children, ...props }: FadeProps) => {
+const Fade = ({ children, className = '', ...props }: FadeProps) => {
   const [key] = useState(Math.random().toString());
 
   return (
@@ -16,6 +16,7 @@ const Fade = ({ children, ...props }: FadeProps) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       {...props}
+      className={className}
     >
       {children}
     </motion.div>
