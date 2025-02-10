@@ -2,8 +2,8 @@ import { Keyboard } from "@/components/molecules/keyboard";
 import { Lifes } from "@/components/molecules/lifes";
 import { Word } from "@/components/molecules/word";
 import { Github } from "lucide-react";
-import { getRandomWordAction } from "./api/random-word/route";
 import { HangmanProvider } from "@/contexts/hagman.context";
+import { getRandomWordAction } from "@/actions/random-word";
 
 export default async function Home() {
   return (
