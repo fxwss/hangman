@@ -17,6 +17,8 @@ const margins = ["md:ml-0", "md:ml-4", "md:ml-8"];
 export const Keyboard = () => {
   const context = useContext(HangmanContext);
 
+  const isGameOver = context.wrongs.length >= context.maxLifes;
+
   useKeyboard((_, letter) => context.setGuesses((keys) => [...keys, letter]), {
     acceptableKeys: keys.flat(),
     transformer: (event) => normalizeLetter(event.key),
@@ -34,7 +36,7 @@ export const Keyboard = () => {
               return (
                 <Key
                   onClick={() => context.setGuesses((keys) => [...keys, key])}
-                  active={!inGussedLetters}
+                  active={!inGussedLetters && !isGameOver}
                   key={key}
                 >
                   {key}

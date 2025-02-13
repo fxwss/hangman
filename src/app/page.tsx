@@ -1,13 +1,12 @@
 import { Keyboard } from "@/components/molecules/keyboard";
 import { Lifes } from "@/components/molecules/lifes";
 import { Word } from "@/components/molecules/word";
-import { Github } from "lucide-react";
 import { HangmanProvider } from "@/contexts/hagman.context";
-import { getRandomWordAction } from "@/actions/random-word";
+import { Github } from "lucide-react";
 
 export default async function Home() {
   return (
-    <HangmanProvider word={await getRandomWordAction()}>
+    <HangmanProvider>
       <main className="flex flex-col w-screen h-screen font-mono">
         <nav className="flex justify-between px-4 py-2 border-b-[1px] ">
           <h1 className="text-xl font-bold">Hangman</h1>

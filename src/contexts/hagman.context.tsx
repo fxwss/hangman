@@ -6,6 +6,7 @@ import {
   PropsWithChildren,
   SetStateAction,
   useCallback,
+  useEffect,
   useState,
 } from "react";
 
@@ -50,10 +51,14 @@ export const HangmanProvider = (
   }, []);
 
   const updateWord = useCallback(async () => {
-    const response = await fetch("/api/random-word");
+    const response = await fetch("/api/random-word", { cache: "no-store" });
     const data = await response.json();
     setWord(data.word);
   }, [setWord]);
+
+  useEffect(() => {
+    updateWord();
+  }, [updateWord]);
 
   return (
     <HangmanContext.Provider
